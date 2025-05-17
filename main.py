@@ -90,7 +90,7 @@ def analyze_with_gemini(project_name):
     url = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent'
     headers = {'Content-Type': 'application/json', 'x-goog-api-key': GEMINI_API_KEY}
     prompt = (
-        f"Collect detailed information about the cryptocurrency project {project_name} from ICO Drops, Token Unlocks, Dextools.
+        f"Collect detailed information about the cryptocurrency project {project_name} from ICO Drops, Token Unlocks, Dextools."
 "
         f"Provide:
 "
