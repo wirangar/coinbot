@@ -92,23 +92,23 @@ def analyze_with_gemini(project_name):
     prompt = (
         f"Collect detailed information about the cryptocurrency project {project_name} from ICO Drops, Token Unlocks, Dextools."
 "
-        f"Provide:
+        f"Provide:\n"
 "
-        f"- Whitepaper link or summary
+        f"- Whitepaper link or summary\n"
 "
-        f"- Roadmap details
+        f"- Roadmap details\n"
 "
-        f"- Launchpad or presale details
+        f"- Launchpad or presale details\n"
 "
-        f"- Estimated ROI potential
+        f"- Estimated ROI potential\n"
 "
-        f"- Risk level (1-5) and reasons
+        f"- Risk level (1-5) and reasons\n"
 "
-        f"- Expected exchanges for listing
+        f"- Expected exchanges for listing\n"
 "
-        f"- Token unlock schedule (if available)
+        f"- Token unlock schedule (if available)\n"
 "
-        f"- Any relevant links"
+        f"- Any relevant links"\n"
     )
     data = {'contents': [{'parts': [{'text': prompt}]}]}
     try:
