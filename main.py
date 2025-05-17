@@ -1,3 +1,4 @@
+
 import requests
 from telegram import Update
 from telegram.ext import Application, CommandHandler, ContextTypes
@@ -186,8 +187,8 @@ def main():
     app.run_webhook(
         listen="0.0.0.0",
         port=8080,
-        url_path=TELEGRAM_TOKEN,
-        webhook_url=f"https://wirangarcoinbot-406993416911.europe-west1.run.app/{TELEGRAM_TOKEN}"
+        url_path="webhook",
+        webhook_url="https://wirangarcoinbot-406993416911.europe-west1.run.app/webhook"
     )
 
 if __name__ == "__main__":
