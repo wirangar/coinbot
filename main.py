@@ -89,27 +89,17 @@ def get_icodrops_data():
 def analyze_with_gemini(project_name):
     url = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent'
     headers = {'Content-Type': 'application/json', 'x-goog-api-key': GEMINI_API_KEY}
-    prompt = (
-        f"Collect detailed information about the cryptocurrency project {project_name} from ICO Drops, Token Unlocks, Dextools."
-"
-        f"Provide:\n"
-"
-        f"- Whitepaper link or summary\n"
-"
-        f"- Roadmap details\n"
-"
-        f"- Launchpad or presale details\n"
-"
-        f"- Estimated ROI potential\n"
-"
-        f"- Risk level (1-5) and reasons\n"
-"
-        f"- Expected exchanges for listing\n"
-"
-        f"- Token unlock schedule (if available)\n"
-"
-        f"- Any relevant links"\n"
-    )
+    prompt = f"""Collect detailed information about the cryptocurrency project {project_name} from ICO Drops, Token Unlocks, Dextools.
+Provide:
+- Whitepaper link or summary
+- Roadmap details
+- Launchpad or presale details
+- Estimated ROI potential
+- Risk level (1-5) and reasons
+- Expected exchanges for listing
+- Token unlock schedule (if available)
+- Any relevant links
+"""
     data = {'contents': [{'parts': [{'text': prompt}]}]}
     try:
         response = requests.post(url, headers=headers, json=data)
@@ -187,9 +177,7 @@ async def check(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await update.message.reply_text("لطفاً نام کوین رو وارد کن: /check <نام کوین>")
         return
     analysis = analyze_with_gemini(coin_name)
-    await update.message.reply_text(f"📊 تحلیل برای {coin_name}:
-
-{analysis}")
+    await update.message.reply_text(f"📊 تحلیل برای {coin_name}:\n\n{analysis}")
 
 def main():
     app = Application.builder().token(TELEGRAM_TOKEN).build()
